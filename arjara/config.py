@@ -1,18 +1,15 @@
-""" Пустые списки не менять и не удалять. Значения задавать в следующей секции"""
-# Пустой список счетов
-acc_name_list = []
-
-# Инициализация пустых списков для начитки документов
-figi_list = []
-ticker_list = []
-isin_list = []
-currency_list = []
+from pathlib import Path
 
 """ Ограничения через списки """
+acc_name_list = ["Основной счет", "ИИС"]
+#acc_name_list = ["ИИС"]
 
-#acc_name_list = ["Основной счет", "ИИС"]
-acc_name_list = ["Основной счет"]
+""" Путь к yaml файлам """
+yaml_path = Path(Path.cwd().parent, "portfolio")
 
-#figi_list = ['BBG00N9MJTZ9', 'BBG003NXJNH6']
-#ticker_list = ['HYLN', 'AMH']
-#currency_list = ['usd']
+if yaml_path.exists():
+    pass
+else:
+    yaml_path = Path(Path.cwd(), "portfolio")
+
+base_yaml_file = "base.yaml"

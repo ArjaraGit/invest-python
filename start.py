@@ -1,10 +1,6 @@
-from arjara.instruments import get_current_position
+from arjara.instruments import get_current_position, prepare_and_write_to_yaml
 
 if __name__ == "__main__":
-    position_list = get_current_position()
+    acc_not_exist_in_base = prepare_and_write_to_yaml(get_current_position())
 
-    for item in position_list:
-        print(item + ":")
-        for ticker in position_list[item]:
-            print("\t{}: {}".format(ticker, position_list[item][ticker]))
-
+    print(acc_not_exist_in_base)
