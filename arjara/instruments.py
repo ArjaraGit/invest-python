@@ -119,6 +119,12 @@ def get_instruments_list(**kwargs):
     with Client(TOKEN) as client:
         shares = client.instruments.shares(instrument_status=1)
         fonds = client.instruments.etfs(instrument_status=1)
+        bonds = client.instruments.bonds(instrument_status=1)
+
+        for bond in bonds.instruments:
+            share_list.append(
+                {"figi": bond.figi, "ticker": bond.ticker, "isin": bond.isin, "currency": bond.currency,
+                 "lot": bond.lot})
 
         for etf in fonds.instruments:
             share_list.append(
